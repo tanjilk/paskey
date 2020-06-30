@@ -15,7 +15,7 @@ def index():
         else:
             flash(f'Key not found !', '#CD5C5C')
             return redirect(url_for('index'))
-    return render_template('home.html', form=form1, title="Paskey | World of keys)
+    return render_template('home.html', form=form1, title="Paskey | World of keys")
 
 @app.route("/generate", methods=["GET", "POST"])
 def generate():
