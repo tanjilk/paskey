@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block customhead %}
+	<meta name="description" content="World of keys. Best way to store links in keys.">
+	<meta name="keywords" content="HTML, CSS">
+	<meta name="author" content="Manjunath Bhat K">
+{% endblock customhead %}
+{% block content %}
+
+    <div id="container">
+        <img style="margin: 30px;" src="{{url_for('static', filename='logo.png')}}">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <h3 style="color:{{category}};font-family: 'Montserrat',sans-serif;">{{ message }}</h3>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <label style="font-family: 'Montserrat',sans-serif;font-weight: 300;">Enter the code</label></br>
+            {{ form.paskey(id="text") }}
+            </br>
+            {{ form.submit(id="button",value="Open")}}
+        </form>
+        <a style="color:black;font-family: 'Montserrat',sams-serif;font-size: 15px;" href="{{url_for('generate')}}">Generate Key</a>
+    </div>
+{% endblock content%}

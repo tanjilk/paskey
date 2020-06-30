@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	{% block customhead %}{% endblock customhead %}
+        {% if title %}
+            <title>{{ title }}</title>
+        {% else %}
+            <title>Paskey</title>
+        {% endif %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Copse&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        {% block content %}{% endblock content %}
+    </body>
+</html>

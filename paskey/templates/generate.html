@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block customhead %}
+	<meta name="description" content="World of keys. Best way to store links in keys.">
+	<meta name="keywords" content="HTML, CSS">
+	<meta name="author" content="Manjunath Bhat K">
+{% endblock customhead %}
+{% block content %}
+    <div id="container">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            {% if form.url.errors %}
+                <h3 style="color:#FF0000;font-family: 'Montserrat',sans-serif;">{{form.url.errors[0]}}</h3>
+            {% endif %}
+            <label style="font-family: 'Montserrat',sans-serif;font-weight: 300;">Enter the URL</label></br>
+            {{ form.url(id="textg") }}</br>
+            {{ form.submit(id="buttong",value="Generate")}}
+        </form>
+    </div>
+{% endblock content %}
