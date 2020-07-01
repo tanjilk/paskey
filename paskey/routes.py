@@ -31,3 +31,11 @@ def generate():
         flash(f"Key Generated ! Your Key is : {gkey}", '#00ffc7')
         return redirect(url_for('index'))
     return render_template('generate.html', form=form2, title="Generate Paskey")
+
+@app.route("/<ukey>")
+def redirector(ukey):
+    if Keys.query.filter_by(key=ukey).first():
+        ulink = Keys.query.filter_by(key=ukey).first().link
+        return redirect(ulink)
+    else:
+        return render_template('404.html')
